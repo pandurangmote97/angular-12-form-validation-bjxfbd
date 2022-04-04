@@ -19,3 +19,14 @@ export default class Validation {
     };
   }
 }
+export class User {
+  name: string;
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  state: string;
+  zipCode: number;
+  country: any;
+  email: string;
+  phone: string;
+}
