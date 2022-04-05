@@ -1,25 +1,26 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+export class Validation {
+  propName!: string;
+  obj: any;
+  isValid = false;
+  isRequired = false;
+  isTouched = false;
+  isDuplicate = false;
+  value: any;
+}
 
-export default class Validation {
-  static match(controlName: string, checkControlName: string): ValidatorFn {
-    return (controls: AbstractControl) => {
-      const control = controls.get(controlName);
-      const checkControl = controls.get(checkControlName);
-
-      if (checkControl.errors && !checkControl.errors.matching) {
-        return null;
-      }
-
-      if (control.value !== checkControl.value) {
-        controls.get(checkControlName).setErrors({ matching: true });
-        return { matching: true };
-      } else {
-        return null;
-      }
-    };
+class constraint {
+  constructor() {
+    this.validationObj = {};
+  }
+  validationObj: { [pName: string]: Validation };
+  match(controlName: string, checkControlName: string) {}
+  validate(skipUntouchedProps = false) {
+    const objectKeys = Object.keys(User.prototype) as Array<keyof User>;
+    console.log('key:', objectKeys);
   }
 }
-export class User {
+
+export class User extends constraint {
   name: string;
   addressLine1: string;
   addressLine2: string;

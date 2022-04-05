@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Validation from './utils/validation';
+import { NgModel } from '@angular/forms';
+import { User } from './utils/validation';
 
 @Component({
   selector: 'my-app',
@@ -7,7 +8,10 @@ import Validation from './utils/validation';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  user: User;
+  constructor() {
+    this.user = new User();
+  }
 
   ngOnInit(): void {}
 }
